@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import 'normalize.css'
+import './App.css'
+import styled from 'styled-components'
+import HunterSelect from './Components/HunterSelect/HunterSelect'
+import MapSelect from './Components/MapSelect/MapSelect'
+import MonsterSelect from './Components/MonsterSelect/MonsterSelect'
+import BottomBar from './Components/BottomBar/BottomBar'
+import Context from './Context'
+
+const MainDiv = styled.div`
+  background-color: red;
+  height: 100vh;
+  width: 80vw;
+  flex-direction: column;
+`
+
+const MainPanel = styled.div`
+  background-color: green;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context>
+      <MainDiv className="App">
+        <MainPanel>
+          <HunterSelect />
+          <MapSelect />
+          <MonsterSelect />
+        </MainPanel>
+        <BottomBar />
+      </MainDiv>
+    </Context>
   );
 }
 
